@@ -76,7 +76,7 @@ int main(int argc, char **argv)
             usleep(1000000); 
             printf("\033[2J\033[H");
             break;
-        default:
+        default: 
             printf("\033[1;33mADVERTENCIA: \033[1;31mOpción incorrecta\n\033[0m");
             break;
         }
