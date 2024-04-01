@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     cargar_impresoras(file, cadena_impresoras);
     do
     {
-        printf("\033[1;34m");
+        printf("\033[1;34m"); /*MENÚ DE OPCIONES*/
         printf("\n┌──────────────────────────────────────────────────────────────┐\n");
         printf("│                      Opciones del Menú                       │\n");
         printf("└──────────────────────────────────────────────────────────────┘\n");
@@ -44,19 +44,19 @@ int main(int argc, char **argv)
             break;
         case '3':
             printf("Introduce nombre de la impresora y número de trabajo: ");
-            scanf("%s %d", impresora.nome, &traballo);
+            scanf("%s %d", impresora.nome, &traballo); /*GUARDA EL NOMBRE DE LA IMPRESORA Y EL CÓDIGO DEL TRABAJO*/
             printf("\033[2J\033[H");
             enviar_traballo(&cadena_impresoras, impresora, traballo);
             break;
         case '4':
             printf("Nombre de la impresora: ");
-            scanf("%s", impresora.nome);
+            scanf("%s", impresora.nome); /*GUARDA EL NOMBRE DE LA IMPRESORA*/
             printf("\033[2J\033[H");
             imprimir_cola_impresion(cadena_impresoras, impresora);
             break;
         case '5':
             printf("Nombre de la impresora: ");
-            scanf("%s", impresora.nome);
+            scanf("%s", impresora.nome); /*GUARDA EL NOMBRE DE LA IMPRESORA*/
             printf("\033[2J\033[H");
             imprimir_traballo(cadena_impresoras, impresora);
             break;
@@ -70,9 +70,9 @@ int main(int argc, char **argv)
             FILE *file2 = fopen("impresoras.txt", "w");
             actualizararchivo(file2, cadena_impresoras);
             fclose(file2);
-            fclose(file);
-            destruirLista(&cadena_impresoras);
-            printf("\033[32mGuardando cambios...\n\033[0m");
+            fclose(file); /*CIERRA LOS ARCHIVOS*/
+            destruirLista(&cadena_impresoras); 
+            printf("\033[32mGuardando cambios...\n\033[0m"); 
             usleep(1000000); 
             printf("\033[2J\033[H");
             break;
